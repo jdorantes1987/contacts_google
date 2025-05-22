@@ -1,6 +1,6 @@
 import os
 import pickle
-
+import datetime
 import pandas as pd
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -45,6 +45,7 @@ def main():
     # Extrae los datos a una lista de diccionarios
     data = []
     for person in connections:
+        resource_name = person.get("resourceName", "")
         name = person.get("names", [{}])[0].get("displayName", "")
         email = person.get("emailAddresses", [{}])[0].get("value", "")
         phone = person.get("phoneNumbers", [{}])[0].get("value", "")
@@ -52,7 +53,17 @@ def main():
         address = person.get("addresses", [{}])[0].get("formattedValue", "")
         organization = person.get("organizations", [{}])[0].get("name", "")
         biography = person.get("biographies", [{}])[0].get("value", "")
-        birthday = person.get("birthdays", [{}])[0].get("text", "")
+        birthday = person.get("birthdays", [{}])[0].get("date", "")
+        birthday = (
+            datetime.date(
+                birthday.get("year", 0),
+                birthday.get("month", 0),
+                birthday.get("day", 0),
+            )
+            if birthday
+            else ""
+        )
+        birthday = birthday.strftime("%d-%m-%Y") if birthday else ""
         gender = person.get("genders", [{}])[0].get("value", "")
         # photo = person.get("photos", [{}])[0].get("url", "")
         # url = person.get("urls", [{}])[0].get("value", "")
@@ -62,6 +73,7 @@ def main():
         occupation = person.get("occupations", [{}])[0].get("value", "")
         data.append(
             {
+                "resource_name": resource_name,
                 "Nombre": name,
                 "Email": email,
                 "Telefono": phone,
