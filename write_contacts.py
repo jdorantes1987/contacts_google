@@ -28,7 +28,7 @@ def update_contact(
     new_name=None,
     new_email=None,
     new_phone=None,
-    phone_label=None,  # <-- Nuevo parámetro
+    phone_label=None,
     new_address=None,
     new_organization=None,
     new_biography=None,
@@ -120,18 +120,18 @@ def update_contact(
 if __name__ == "__main__":
     # Ejemplo de uso: actualiza todos los campos posibles de un contacto
     update_contact(
-        resource_name="people/c2525935020055560378",
-        new_name="Rosbely Herrera",
+        resource_name="people/c2865849576636545964",
+        new_name="Jhoan 💯 Dorantes",
         new_email="",
-        new_phone="+58 4141952418",
-        phone_label="mobile",
-        new_address="Caracas, Venezuela",
+        new_phone="+593983410326",
+        phone_label="work",
+        new_address="Guayaquil, Ecuador",
         new_organization="",
         new_biography="",
         new_birthday="",
-        new_gender="female",
+        new_gender="male",
         new_event="",
-        new_relation="",
+        new_relation="Hermano",
         new_im_client="",
-        new_occupation="RRHH",
+        new_occupation="Tecnico",
     )

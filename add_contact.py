@@ -84,19 +84,19 @@ def add_contact(
 
 if __name__ == "__main__":
     # Datos hardcodeados para el nuevo contacto
-    name = "Tibisay Chaparro"
+    name = "Renault Service Doctor"
     email = ""
-    phone = "+584242964199"
+    phone = "+584143324766"
     phone_label = "mobile"
     address = "Caracas, Venezuela"
-    organization = ""
+    organization = "Renault Service Doctor"
     biography = ""
     birthday = ""
-    gender = "female"
+    gender = "male"
     event = ""
-    relation = "Familia"
+    relation = "Proveedor"
     im_client = ""
-    occupation = ""
+    occupation = "Especialista en Servicios y Reparaciones en vehículos Renault"
 
     add_contact(
         name,
